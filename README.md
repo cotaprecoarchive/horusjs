@@ -1,5 +1,10 @@
 # `Horus.js`
-A simple nodejs client for **Horus**.
+A simple nodejs client for [Horus](https://github.com/CotaPreco/Horus).
+
+#### Just install with npm
+```
+npm install horusjs
+```
 
 #### Example
 ```javascript
