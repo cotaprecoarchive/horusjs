@@ -1,0 +1,26 @@
+{
+  "name": "horusjs",
+  "version": "1.0.0",
+  "description": "A simple nodejs client for CotaPreco/Horus",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/julianocomg/horusjs.git"
+  },
+  "keywords": [
+    "horus",
+    "horusjs",
+    "realtime",
+    "horus",
+    "client"
+  ],
+  "author": "Juliano Castilho <julianocomg@gmail.com> (https://github.com/julianocomg)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/julianocomg/horusjs/issues"
+  },
+  "homepage": "https://github.com/julianocomg/horusjs"
+}
