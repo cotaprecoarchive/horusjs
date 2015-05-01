@@ -41,10 +41,5 @@ client.send({
 });
 ```
 
-#### How to do a full match delivery? `A && C`
-This means: only delivery if contains `A` **and** `C`, but in few words: you can't do this in a native way. Also, what we can say for you *today* is: design your tags.
-
-You can create `A+C` or `A_C` or `A-C` etc, be free to design your tags (without spaces), and apply it into `tags`, as show above.
-
 ### Currently supported transport strategies
 For now we only support UDP as the default protocol.
