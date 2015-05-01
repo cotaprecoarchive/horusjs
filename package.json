@@ -1,6 +1,6 @@
 {
   "name": "horusjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A simple nodejs client for CotaPreco/Horus",
   "main": "index.js",
   "scripts": {
