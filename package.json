@@ -1,6 +1,6 @@
 {
   "name": "horusjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple nodejs client for CotaPreco/Horus",
   "main": "index.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "horus",
     "client"
   ],
-  "author": "Juliano Castilho <julianocomg@gmail.com> (https://github.com/julianocomg)",
+  "author": "Juliano Castilho <julianocomg@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/julianocomg/horusjs/issues"
