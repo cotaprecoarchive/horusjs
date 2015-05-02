@@ -32,11 +32,11 @@ Horus.prototype = {
     }
 
     tags.map(function(tag) {
-      if(typeof tag === 'array') {
+      if (typeof tag === 'array') {
         tag = tag.join('\0\0');
       }
 
-      if(typeof tag === 'string') {
+      if (typeof tag === 'string') {
         tag = tag.split(' ').join('\0\0');
       }
 
