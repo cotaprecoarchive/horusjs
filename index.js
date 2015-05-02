@@ -3,21 +3,28 @@
  * @author Juliano Castilho <julianocomg@gmail.com>
  */
 var UdpTransport = require('./transport/Udp');
+var url = require('url');
 
  /*
- * @param {String} host
- * @param {Number} port
+ * @param {String} urlString
  */
-function Horus(host, port) {
-  var protocol = host.match(/(.[^:]+):\/\//)[1];
+function Horus(urlString) {
+  var parsed = url.parse(urlString, false);
 
-  switch(protocol) {
-    case 'udp':
-      this.transport = new UdpTransport(host, port);
+  if (!(parsed.hostname && parsed.port && parsed.protocol)) {
+    throw '...invalid url `' + urlString + '`';
+  }
+
+  switch (parsed.protocol) {
+    case 'udp:':
+      this.transport = new UdpTransport(parsed.hostname, parsed.port);
       break;
+
+    default:
+      throw '...`' + parsed.protocol + '` is not supported!';
   }
 }
- 
+
 Horus.prototype = {
   /**
    * @param {Object} payload
@@ -25,24 +32,23 @@ Horus.prototype = {
   send: function(payload) {
     var tags = payload.tags;
     var message = payload.message;
+    var transport = this.transport;
 
-    if (!tags || tags.length < 1)
-      return this.transport.send(message);
+    if (!tags || tags.length < 1) {
+      return transport.send(message);
+    }
 
-    if (tags && tags.length)
-      var self = this;
+    tags.map(function(tag) {
+      if (typeof tag === 'array') {
+        tag = tag.join('\0\0');
+      }
 
-      tags.map(function(tag) {
-        if(typeof tag === 'array') {
-          tag = tag.join('\0\0');
-        }
+      if (typeof tag === 'string') {
+        tag = tag.split(' ').join('\0\0');
+      }
 
-        if(typeof tag === 'string') {
-          tag = tag.split(' ').join('\0\0');
-        }
-
-        self.transport.send(tag + '\0' + message);
-      });
+      transport.send(tag + '\0' + message);
+    });
   }
 };
 
