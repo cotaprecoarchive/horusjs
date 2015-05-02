@@ -3,18 +3,25 @@
  * @author Juliano Castilho <julianocomg@gmail.com>
  */
 var UdpTransport = require('./transport/Udp');
+var url = require('url');
 
  /*
- * @param {String} host
- * @param {Number} port
+ * @param {String} urlString
  */
-function Horus(host, port) {
-  var protocol = host.match(/(.[^:]+):\/\//)[1];
+function Horus(urlString) {
+  var parsed = url.parse(urlString, false);
 
-  switch(protocol) {
-    case 'udp':
-      this.transport = new UdpTransport(host, port);
+  if (!(parsed.hostname && parsed.port && parsed.protocol)) {
+    throw '...invalid url `' + urlString + '`';
+  }
+
+  switch (parsed.protocol) {
+    case 'udp:':
+      this.transport = new UdpTransport(parsed.hostname, parsed.port);
       break;
+
+    default:
+      throw '...`' + parsed.protocol + '` is not supported!';
   }
 }
 

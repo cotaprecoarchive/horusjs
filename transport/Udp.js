@@ -9,7 +9,7 @@ var Transport = require('./Transport');
  * @param {Number} port
  */
 function Udp(host, port) {
-  this.host = host.replace('udp://', '');
+  this.host = host;
   this.port = port;
 };
 
