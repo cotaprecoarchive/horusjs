@@ -1,12 +1,15 @@
-# `Horus.js`
+# Horus.js
 A simple nodejs client for [Horus](https://github.com/CotaPreco/Horus).
 
-#### Just install with npm
+<br />
+#### Install with npm
 ```
 npm install horusjs
 ```
 
-#### Example
+<br />
+
+#### Examples
 ```javascript
 var Horus = require('horusjs');
 var client = new Horus('udp://0.0.0.0', 7600);
@@ -27,19 +30,39 @@ client.send({
 
 And you're ready to go. **Horus** will delivery *ANDROID IS BETTER!* to everyone tagged with `iOS`.
 
-##### ...and what about a message to multiple tags?
-Just push how many tags you want to `tags`, and voilà!
+<br />
+
+##### You can delivery to multiple tags, just pushing them into the array
 
 ```javascript
 client.send({
   tags: [
-    'Android', 
-    'WindowsPhone', 
+    'Android',
+    'WindowsPhone',
     'Blackberry'
   ],
   message: 'Bitch, please, we have React Native.'
 });
 ```
+
+<br />
+
+##### And also you can build a tag with multiple arguments, using an `array` or a simple `string`
+
+```javascript
+client.send({
+  tags: [
+    ['a', 'b', 'c'],
+    'one two three'
+  ],
+  message: 'Full match!'
+});
+```
+
+The example above will delivery the message to everyone with the tags *`a b c`* and *`one two tree`*.
+Here, "**a b c**" and "**one two three**" are considered as 2 tags.
+
+<br />
 
 ### Currently supported transport strategies
 For now we only support UDP as the default protocol.
