@@ -1,6 +1,6 @@
 {
   "name": "horusjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple nodejs client for CotaPreco/Horus",
   "main": "index.js",
   "scripts": {
@@ -8,19 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/julianocomg/horusjs.git"
+    "url": "git://github.com/CotaPreco/horusjs.git"
   },
   "keywords": [
     "horus",
     "horusjs",
     "realtime",
     "horus",
-    "client"
+    "client",
+    "cotapreco"
   ],
   "author": "Juliano Castilho <julianocomg@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/julianocomg/horusjs/issues"
+    "url": "https://github.com/CotaPreco/horusjs/issues"
   },
-  "homepage": "https://github.com/julianocomg/horusjs"
+  "homepage": "https://github.com/CotaPreco/horusjs"
 }
